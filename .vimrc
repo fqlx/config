@@ -1,4 +1,3 @@
-  1 execute pathogen#infect()
 execute pathogen#infect()
 
 :set tags=~/mytags
