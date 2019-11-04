@@ -1,5 +1,6 @@
-execute pathogen#infect()
-
+" Install vim plug
+" curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    
 :set tags=~/mytags
 
 " Put plugins and dictionaries in this dir (also on Windows)
