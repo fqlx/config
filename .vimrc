@@ -1,7 +1,11 @@
-" Install vim plug
 " curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    
-:set tags=~/mytags
+" Run :PlugInstall inside Vim
+
+" Enable vim plugins
+call plug#begin('~/.vim/plugged')
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+call plug#end()
 
 " Put plugins and dictionaries in this dir (also on Windows)
 let vimDir = '$HOME/.vim'
@@ -19,59 +23,38 @@ endif
 
 " remove all trailing whitesapce before saving
 autocmd BufWritePre * %s/\s\+$//e
-
-
 :augroup numbertoggle
 :  autocmd!
 :  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
 :  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 :augroup END
 
-set ruler
-
-" Disable arrows
-noremap <Up> <nop>
-noremap <Down> <nop>
-noremap <Left> <nop>
-noremap <Right> <nop>
-
 syntax on
-
+set ruler
 set number relativenumber
 set backspace=indent,eol,start
-
-" Typescript config
-"let g:typescript_compiler_binary = 'tsc'
-"let g:typescript_compiler_options = ''
-"autocmd QuickFixCmdPost [^l]* nested cwindow
-"autocmd QuickFixCmdPost    l* nested lwindow
-"
-"autocmd FileType typescript JsPreTmpl html
-"autocmd FileType typescript syn clear foldBraces
-
-let g:syntastic_typescript_checkers = ['tslint']
-"set tslintpath = system("git rev-parse --show-toplevel |tr -d '\n'")."/tslint.json"
-
 set expandtab
 set shiftwidth=2
 set tabstop=2
-
+set autoindent
 set clipboard=unnamed
 
-call plug#begin('~/.vim/plugged')
-
-"tsx
-Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
-
+" START JSX/TSX CONFIG
 " set filetypes as typescript.jsx
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.jsx
 
-" light blues
-hi xmlTagName guifg=#59ACE5
-hi xmlTag guifg=#59ACE5
+" dark red
+hi tsxTagName guifg=#E06C75
+hi tsxComponentName guifg=#E06C75
+hi tsxCloseComponentName guifg=#E06C75
 
-" dark blues
-hi xmlEndTag guifg=#2974a1
+" orange
+hi tsxCloseString guifg=#F99575
+hi tsxCloseTag guifg=#F99575
+hi tsxCloseTagName guifg=#F99575
+hi tsxAttributeBraces guifg=#F99575
+hi tsxEqual guifg=#F99575
 
-set autoindent
+" yellow
+hi tsxAttrib guifg=#F8BD7F cterm=italic
+" END JSX/TSX CONFIG
