@@ -1,5 +1,5 @@
 " curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-" Run :PlugInstall inside Vim
+" After pasting the config below, run ":PlugInstall" inside Vim
 
 " Enable vim plugins
 call plug#begin('~/.vim/plugged')
