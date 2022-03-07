@@ -5,6 +5,7 @@
 call plug#begin('~/.vim/plugged')
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
+Plug 'tpope/vim-surround'
 call plug#end()
 
 " Put plugins and dictionaries in this dir (also on Windows)
@@ -29,15 +30,16 @@ autocmd BufWritePre * %s/\s\+$//e
 :  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 :augroup END
 
-syntax on
 set ruler
-set number relativenumber
-set backspace=indent,eol,start
+syntax on
+set nu
 set expandtab
 set shiftwidth=2
 set tabstop=2
 set autoindent
-set clipboard=unnamed
+" set clipboard=unnamed
+" set paste
+set re=0
 
 " START JSX/TSX CONFIG
 " set filetypes as typescript.jsx
